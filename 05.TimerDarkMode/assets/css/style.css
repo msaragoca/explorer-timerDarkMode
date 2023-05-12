@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  list-style: none;
+  quotes: none;
+}
+
+:root {
+  font-size: 62.5%;
+  --el-color: #323238;
+  --card-color: #e1e1e6;
+  --bg-card-color: #02799D;
+  --soundsOn-vector: #ffffff;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--el-color);
+  font-size: 1.6rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-areas: 'A B';
+
+  width: 82rem;
+  height: 33rem;
+
+  margin-top: 10rem;
+
+  gap: 5rem;
+}
+
+button {
+  width: clamp(2.8rem, 1rem + 6vw, 4.8rem);
+  cursor: pointer;
+  background-color: var(--card-color);
+  appearance: none;
+}
+
+button.play,
+button.pause,
+button.set,
+button.stop,
+button.addTime,
+button.reduceTime,
+button.darkMode {
+  background: transparent;
+}
+
+button svg path {
+  fill: var(--el-color);
+}
+
+#time-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4.8rem;
+}
+
+.timer span {
+  font-size: 12.8rem;
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hide {
+  display: none;
+}
+
+#sounds {
+  display: grid;
+  grid-template-areas: 'A B';
+
+  gap: 3.2rem;
+}
+
+#sounds button {
+  width: 13.8rem;
+  height: 15.2rem;
+
+  border-radius: 2.4rem;
+}
+
+#sounds button input {
+  background-color: var(--el-color);
+  appearance: none;
+  height: 0.4rem;
+  width: 9rem;
+  border-radius: 0.5rem;
+  margin-top: 3.2rem;
+}
+
+#sounds button input::-webkit-slider-thumb {
+  appearance: none;
+  background-color: var(--el-color);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+}
+
+#sounds button:hover {
+  transform: scale(1.05);
+  box-shadow: 0.25rem 0.25rem 1rem 0 rgba(0, 0, 0, 0.25);
+  transition: 0.2s all ease-out;
+}
+
+/* Active Mode */
+
+#sounds button.active,
+body.dark #sounds button.active{
+background-color: var(--bg-card-color);
+}
+
+#sounds button.active svg path,
+body.dark #sounds button.active svg path{
+  fill: var(--soundsOn-vector);
+}
+
+#sounds button.active input,
+body.dark #sounds button.active input,
+#sounds button.active input::-webkit-slider-thumb,
+body.dark #sounds button.active input::-webkit-slider-thumb{
+  background-color: var(--soundsOn-vector);
+}
+
+/* DarkMode */
+.darkMode {
+  position: absolute;
+  right: 6rem;
+  top: 6rem;
+}
+
+body.dark {
+  background: hsla(240, 5%, 7%, 1);
+}
+
+body.dark .timer span {
+  color: #ffffff;
+}
+
+body.dark button svg path {
+  fill: #c4c4cc;
+}
+
+body.dark #sounds button {
+  background-color: #29292e;
+}
+
+body.dark #sounds button input,
+body.dark #sounds button input::-webkit-slider-thumb {
+  background-color: #c4c4cc;
+}
